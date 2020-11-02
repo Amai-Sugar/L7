@@ -1,0 +1,20 @@
+<h1>買ってくれ</h1>
+<h2>命短し飲もうよタピオカ</h2>
+<br>
+<%= link_to 'カートを表示', 'carts/show' %>
+<br>
+<br>
+
+<% @products.each do |product| %>
+	<%= form_for @cartitem,:url => {controller: "cart_items", action: "create"} do |f| %>
+		<p><font size="5">商品名：<%= product.name %></font></p>
+		<p><font size="4">価格：<%= product.price %>円</font></p>
+		<%= f.label :qty, '個数' %>
+		<%= f.number_field :qty, min: 0 %>
+		<%= f.hidden_field :product_id, value: product.id %>
+		<%= f.hidden_field :cart_id, value: session[:cart_id] %>
+		<%= f.submit 'カートに追加' %>
+	<% end %>
+<% end %>
+
+<%= link_to '商品追加', products_index_path %>

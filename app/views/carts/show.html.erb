@@ -1,0 +1,13 @@
+<h1>カートの中身</h1>
+
+<% a=0 %>
+<% @cart_items.each do |item| %>
+    <p>製品名：<%= Product.find_by(id: item.product_id).name %></p>
+    <p>価格：<%= Product.find_by(id: item.product_id).price %></p>
+    <p>個数：<%= item.qty %></p>
+    <% a += Product.find_by(id: item.product_id).price * item.qty %> 
+<% end %>
+
+<p>合計金額：<%= a %>円</p>
+
+<p><%= link_to '買い物を続ける', root_path %></p>

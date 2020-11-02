@@ -1,0 +1,3 @@
+class Cartitem < ApplicationRecord
+  
+end

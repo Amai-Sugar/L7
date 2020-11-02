@@ -1,0 +1,9 @@
+<h1>製品一覧</h1>
+<% @products.each do |product| %>
+    <p>製品名：<%= product.name %></p>
+    <p>価格：<%= product.price %></p>
+    <%= link_to '削除', "/products/#{product.id}", method: :delete %>
+<% end %>
+
+<p><%= link_to '新規登録', products_new_path %></p>
+<p><%= link_to 'ホームへ', root_path %></p>
