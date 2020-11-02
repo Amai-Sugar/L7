@@ -6,5 +6,8 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
+    cartitem = Cartitem.find(params[:id])
+    cartitem.destroy
+    redirect_to carts_show_path
   end
 end

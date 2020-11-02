@@ -5,6 +5,7 @@
     <p>製品名：<%= Product.find_by(id: item.product_id).name %></p>
     <p>価格：<%= Product.find_by(id: item.product_id).price %></p>
     <p>個数：<%= item.qty %></p>
+    <%= link_to '削除', "/cart_items/#{item.id}", method: :delete %>
     <% a += Product.find_by(id: item.product_id).price * item.qty %> 
 <% end %>
 

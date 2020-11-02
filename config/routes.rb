@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'carts/show'
   post 'cart_items/create'
-  get 'cart_items/destroy'
+  delete 'cart_items/:id' => 'cart_items#destroy'
   root 'top#main'
   get 'top/main'
   get 'products/index'
